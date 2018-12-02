@@ -2,12 +2,17 @@
   "name": "airport-bord",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yulya9060/airport-bord.git"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "flux": "^3.1.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +46,6 @@
     "stylelint": "^9.9.0",
     "stylelint-config-standard": "^18.2.0",
     "svgo": "^1.1.1"
+
   }
 }
