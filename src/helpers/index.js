@@ -4,7 +4,6 @@ export const isNotExistInArray = (arr, item, key) => {
     if (arr.length > 0) {
         return !arr.some(el => el[key] === item[key]);
     }
-    console.groupEnd();
     return arr.length === 0;
 };
 
