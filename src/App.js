@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Actions from './Actions/Actions';
 
 const App = () => (
     <div className="App">
@@ -21,6 +22,7 @@ and save to reload.
             >
                 Learn React
             </a>
+            <button onClick={Actions.loadBoardData()} type="submit">Нажми на меня</button>
         </header>
     </div>
 );
