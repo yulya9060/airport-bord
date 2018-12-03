@@ -57,3 +57,6 @@ export const getFligth = (segment) => {
         duration: fligth.duration,
     };
 };
+
+// eslint-disable-next-line max-len
+export const getElementByProperty = (arr, arrProperty, obj, objProperty) => arr.find(el => el[arrProperty] === obj[objProperty]);
