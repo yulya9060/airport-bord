@@ -1,4 +1,4 @@
-import Constants from '../constants';
+import Constants from '../Constants';
 import Dispatcher from '../Dispatcher';
 import data from '../data/data.json';
 import {
@@ -13,9 +13,9 @@ import {
 const Actions = {
     // loadBoardData('Шереметьево','Уганда')
     loadBoardData(filter = Constants.BY_ARRIVE) {
-        console.log('data', data);
+        console.log('loadBoardData');
         const { segments } = data;
-        let fligths = [];
+        let flights = [];
         let stations = [];
         let carriers = [];
         let thread;
@@ -30,16 +30,16 @@ const Actions = {
             if (isNotExistInArray(stations, segment.to, 'code')) {
                 stations = [...stations, getStationTo(segment)];
             }
-            fligths = [...fligths, getFligth(segment)];
+            flights = [...flights, getFligth(segment)];
         });
 
-        console.log('newStation', stations);
-        console.log('newСarrier', carriers);
-        console.log('thread', thread);
-        console.log('fligth', fligths);
+        // console.log('newStation', stations);
+        // console.log('newСarrier', carriers);
+        // console.log('thread', thread);
+        // console.log('fligth', flights);
         Dispatcher.dispatch({
             type: Constants.LOAD_BOARD,
-            fligths,
+            flights,
             stations,
             carriers,
             thread,
