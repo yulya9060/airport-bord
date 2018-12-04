@@ -35,22 +35,28 @@
 Добавлены линтеры для автоматической проверки js и scss кода (Eslint и StyleLint).
 
 ### 2 Задание. 
-Почему не увеличивается. Как исправить?
+Почему this._i не увеличивается. Как исправить?
 
-```this._i
-function Ticker() {
-this._i = 0
+```
+function Ticker() { 
+    this._i = 0
 };
-Ticker.prototype = {
- tick: function() {
- console.log(this._i++);
- }
+
+Ticker.prototype = { 
+    tick: function() {
+    console.log(this._i++); }
 };
+
 var ticker = new Ticker();
+ 
 setInterval(ticker.tick, 1000);
 ```
-Решение:
-```function Ticker() {
+
+ В момент вызова функции ticker.tick экземпляра объекта Ticker уже не существует так как вызов произойдет после выполнения основного потока кода. Можно сохранить область видимости через замыкание либо привязать через bind
+
+Решение 1:
+```
+function Ticker() {
     this._i = 0;
 }
 
@@ -65,7 +71,21 @@ const ticker = new Ticker();
 setInterval(() => {
     ticker.tick();
 }, 1000);
+```
+
+Решение 2:
+```
+function Ticker() {
+    this._i = 0;
+}
+
+Ticker.prototype = {
+    tick() {
+        console.log(this._i++);
+    },
+};
+
+const ticker = new Ticker();
 
 setInterval(ticker.tick.bind(ticker), 1000);
 ```
- В момент вызова функции ticker.tick экземпляра объекта Ticker уже не существует так как вызов произойдет после выполнения основного потока кода. Можно сохранить область видимости через замыкание либо привязать через bind
