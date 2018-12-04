@@ -5,12 +5,12 @@ import './Filter.scss';
 import Constants from '../../Constants';
 
 const arrivalBtn = (filter, buttonFilter) => cn({
-    filter__btn: true,
-    filter__btn_active: buttonFilter === filter,
+    'Filter-Btn': true,
+    'Filter-Btn_active': buttonFilter === filter,
 });
 
 const Filter = ({ onFilterChange, filter }) => (
-    <div className="filter">
+    <div className="Filter">
         <button onClick={onFilterChange(Constants.BY_DEPART)} type="submit" className={arrivalBtn(filter, Constants.BY_DEPART)}>
             Вылет
         </button>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './FlightDate.scss';
 
 const FlightDate = ({ time, date }) => (
-    <div className="flightDate">
+    <div className="FlightDate">
         {time.substr(0, 5)}
         {' '}
         {date}

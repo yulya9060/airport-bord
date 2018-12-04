@@ -29,23 +29,23 @@ class Search extends React.Component {
     render() {
         const { search } = this.state;
         return (
-            <div className="search">
+            <div className="Search">
                 <input
                     type="text"
                     name="search"
                     value={search}
                     onChange={this.onInputChange}
-                    className="seacrh_text"
+                    className="Search-Text"
                     placeholder="Введите номер рейса"
                 />
                 <button
                     onClick={this.onChange}
-                    className="search__btn search__btn_marginRight"
+                    className="Search-Btn search-Btn_marginRight"
                     type="submit"
                 >
                     Поиск
                 </button>
-                <button onClick={this.onResetSearchValue} className="search__btn" type="submit">
+                <button onClick={this.onResetSearchValue} className="Search-Btn" type="submit">
                     Очистить
                 </button>
             </div>

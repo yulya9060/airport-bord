@@ -33,7 +33,6 @@ class AirportBoard extends Component {
     };
 
     onFilterChange = filter => () => {
-        console.log('onFilterChange', filter);
         Actions.filterByType(filter);
     };
 
@@ -42,11 +41,11 @@ class AirportBoard extends Component {
             flights, stations, threads, search, filter,
         } = this.state;
         return (
-            <div className="airportBord">
-                <h3 className="airportBord__title">Табло</h3>
+            <div className="AirportBoard">
+                <h3 className="AirportBoard-Title">Табло</h3>
                 <Filter onFilterChange={this.onFilterChange} filter={filter} />
                 <Search onSearchByBumber={this.onSearchByBumber} />
-                <div className="flights">
+                <div className="Flights">
                     <PlaneSchedule
                         flights={flights}
                         threads={threads}

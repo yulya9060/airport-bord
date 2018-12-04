@@ -1,12 +1,14 @@
-.flightStations {
-    flex: 1 0 auto;
+@import "../../index";
 
-    transition: color 0.3s;
+.FlightStations {
+    flex-basis: 600px;
+
+    transition: color 0.15s;
 
     font-size: 32px;
     font-weight: normal;
 
     &:hover {
-        color: #e07500;
+        color: $second-color-hover;
     }
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './FlightStations.scss';
 
 const FlightStations = ({ stationFrom, stationTo }) => (
-    <div className="flightStations">
+    <div className="FlightStations">
         {`${stationFrom.title}
                 -
         ${stationTo.title}`}

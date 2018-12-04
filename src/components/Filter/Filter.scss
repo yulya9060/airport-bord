@@ -1,24 +1,27 @@
-.filter {
+@import "../../index.scss";
+
+.Filter {
     display: flex;
     justify-content: flex-start;
 
     margin-bottom: 20px;
-}
 
-.filter__btn {
-    cursor: pointer;
-    transition: color 0.4s;
-    text-decoration: none;
+    &-Btn {
+        cursor: pointer;
+        transition: color 0.15s;
+        text-decoration: none;
 
-    color: #000;
+        color: $first-color;
 
-    font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
-    font-size: 50px;
-    font-weight: 700;
-    &:hover {
-        color: #ffac02;
-    }
-    &_active {
-        color: #ffac02;
+        font-size: 50px;
+        font-weight: 700;
+
+        &:hover {
+            color: $first-color-hover;
+        }
+
+        &_active {
+            color: $first-color-hover;
+        }
     }
 }
