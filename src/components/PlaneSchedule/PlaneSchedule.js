@@ -25,7 +25,6 @@ const findObjInArr = (elem, threads) => threads.find(el => el.uid === elem.threa
 const PlaneSchedule = ({
     flights, threads, searchStr, stations,
 }) => {
-    console.log('plane', searchStr);
     /**
      * найти все нитки рейсов, в номерах которых содержится подстрока из поиска
      */

@@ -14,7 +14,7 @@ export const getThread = (segment) => {
         title: thread.title,
         number: thread.number,
         short_title: thread.short_title,
-        codeCarrier: thread.carrier.code,
+        code_carrier: thread.carrier.code,
         transport_type: thread.transport_type,
         vehicle: thread.vehicle,
     };
@@ -55,6 +55,7 @@ export const getFligth = (segment) => {
         uid: v4(),
         to: fligth.to.code,
         duration: fligth.duration,
+        start_date: fligth.start_date,
     };
 };
 
