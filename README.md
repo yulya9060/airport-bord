@@ -15,8 +15,32 @@
 то положите данные в отдельный файл в репозитории.
 
 Приложение разработано при помощи Create-React-App. 
-Доступно по ссылке https://yulya9060.github.io/airport-bord/build/index.html
+Доступно по ссылке 
+> https://yulya9060.github.io/airport-bord/build/index.html
 
-Запуск приложения для разработки ### `npm start` по адресу http://localhost:3000
+Запуск приложения для разработки 
+### `npm start` по адресу http://localhost:3000
 
-Для сборки приложения используется команда ### `npm run build`
+Для сборки приложения используется команда 
+### `npm run build`
+
+Данные о расписании рейсов берутся из mock-файла. Данные были получены при помощи API расписания рейсов между станциями от Яндекс по следующему запросу:
+
+> https://api.rasp.yandex.net/v3.0/search/?apikey={apikey}&format=json&from=c146&to=c213&lang=ru_RU&page=1
+
+Реализовать загрузку данных с данного API мне не удалось, не смогла победить CORS. Для работы с запросами была установлена библиотека axios. Файл с запросом - Api.js
+
+Расписание фильтруется по вылетающим и прилетающим рейсам. Так же, можно искать рейсы по номеру. Можно просмотреть рейсы, которые задерживаются.
+
+### 2 Задание. 
+this._i
+function Ticker() {
+this._i = 0
+};
+Ticker.prototype = {
+ tick: function() {
+ console.log(this._i++);
+ }
+};
+var ticker = new Ticker();
+setInterval(ticker.tick, 1000);
