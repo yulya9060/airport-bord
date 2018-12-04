@@ -10,18 +10,10 @@ import {
     getStationTo,
     getFligth,
 } from '../helpers/index';
-// import api from '../Api';
 
 const Actions = {
     loadBoardDataFromTo(filter) {
         console.log('loadData', filter);
-        // api.getAirportBord()
-        //     .then((response) => {
-        //         console.log('response', response.data);
-        //     })
-        //     .catch((err) => {
-        //         console.log('err', err.toString());
-        //     });
         const { segments } = fromto;
         let flights = [];
         let stations = [];
@@ -92,6 +84,7 @@ const Actions = {
             break;
         }
     },
+
     searchByNumber(threadNumber) {
         Dispatcher.dispatch({
             type: Constants.SEARCH_BY_NUMBER_FLIGHT,

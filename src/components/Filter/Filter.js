@@ -11,18 +11,10 @@ const arrivalBtn = (filter, buttonFilter) => cn({
 
 const Filter = ({ onFilterChange, filter }) => (
     <div className="filter">
-        <button
-            onChange={() => onFilterChange(Constants.BY_DEPART)}
-            type="submit"
-            className={arrivalBtn(filter, Constants.BY_DEPART)}
-        >
+        <button onClick={onFilterChange(Constants.BY_DEPART)} type="submit" className={arrivalBtn(filter, Constants.BY_DEPART)}>
             Вылет
         </button>
-        <button
-            onChange={() => onFilterChange(Constants.BY_ARRIVE)}
-            type="submit"
-            className={arrivalBtn(filter, Constants.BY_ARRIVE)}
-        >
+        <button onClick={onFilterChange(Constants.BY_ARRIVE)} type="submit" className={arrivalBtn(filter, Constants.BY_ARRIVE)}>
             Прилет
         </button>
     </div>

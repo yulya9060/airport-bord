@@ -5,9 +5,8 @@ import Filter from '../../components/Filter/Filter';
 import Search from '../../components/Search/Search';
 import './AirportBoard.scss';
 import PlaneSchedule from '../../components/PlaneSchedule/PlaneSchedule';
-import Constants from '../../Constants';
 
-class AirportBoard extends Component {
+class AirportBord extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +16,7 @@ class AirportBoard extends Component {
 
     componentDidMount() {
         BoardStore.addChangeListener(this.updateState);
-        Actions.loadBoardDataFromTo(Constants.BY_ARRIVE);
+        Actions.loadBoardData();
     }
 
     componentWillUnmount() {
@@ -32,19 +31,18 @@ class AirportBoard extends Component {
         Actions.searchByNumber(searchText);
     };
 
-    onFilterChange = filter => () => {
-        console.log('onFilterChange', filter);
-        Actions.filterByType(filter);
+    onFilter = test => () => {
+        console.log('test1', test);
     };
 
     render() {
         const {
-            flights, stations, threads, search, filter,
+            flights, stations, threads, search,
         } = this.state;
         return (
             <div className="airportBord">
                 <h3 className="airportBord__title">Табло</h3>
-                <Filter onFilterChange={this.onFilterChange} filter={filter} />
+                <Filter onFilterChange={this.onFilter} />
                 <Search onSearchByBumber={this.onSearchByBumber} />
                 <div className="flights">
                     <PlaneSchedule
@@ -59,4 +57,4 @@ class AirportBoard extends Component {
     }
 }
 
-export default AirportBoard;
+export default AirportBord;
