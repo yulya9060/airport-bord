@@ -26,14 +26,18 @@
 
 Данные о расписании рейсов берутся из mock-файла. Данные были получены при помощи API расписания рейсов между станциями от Яндекс по следующему запросу:
 
-> https://api.rasp.yandex.net/v3.0/search/?apikey={apikey}&format=json&from=c146&to=c213&lang=ru_RU&page=1
+```https://api.rasp.yandex.net/v3.0/search/?apikey={apikey}&format=json&from=c146&to=c213&lang=ru_RU&page=1```
 
 Реализовать загрузку данных с данного API мне не удалось, не смогла победить CORS. Для работы с запросами была установлена библиотека axios. Файл с запросом - Api.js
 
 Расписание фильтруется по вылетающим и прилетающим рейсам. Так же, можно искать рейсы по номеру. Можно просмотреть рейсы, которые задерживаются.
 
+Добавлены линтеры для автоматической проверки js и scss кода (Eslint и StyleLint).
+
 ### 2 Задание. 
-this._i
+Почему не увеличивается. Как исправить?
+
+```this._i
 function Ticker() {
 this._i = 0
 };
@@ -44,3 +48,24 @@ Ticker.prototype = {
 };
 var ticker = new Ticker();
 setInterval(ticker.tick, 1000);
+```
+Решение:
+```function Ticker() {
+    this._i = 0;
+}
+
+Ticker.prototype = {
+    tick() {
+        console.log(this._i++);
+    },
+};
+
+const ticker = new Ticker();
+
+setInterval(() => {
+    ticker.tick();
+}, 1000);
+
+setInterval(ticker.tick.bind(ticker), 1000);
+```
+ В момент вызова функции ticker.tick экземпляра объекта Ticker уже не существует так как вызов произойдет после выполнения основного потока кода. Можно сохранить область видимости через замыкание либо привязать через bind
