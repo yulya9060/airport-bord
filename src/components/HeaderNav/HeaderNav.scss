@@ -1,13 +1,13 @@
-@import '../../index.scss';
+@import "../../index.scss";
 
-.Header-Nav {
+.HeaderNav {
     display: flex;
     align-items: center;
     justify-content: space-around;
 
     width: 100%;
-}
 
-.Header-Item:hover {
-    color: $first-color-hover;
+    &-Item:hover {
+        color: $first-color-hover;
+    }
 }

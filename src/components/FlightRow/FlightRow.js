@@ -15,7 +15,7 @@ const FlightRow = ({ flights, threads, stations }) => {
     const stationTo = stations.length ? getElementByProperty(stations, 'code', flights, 'to') : [];
     const thread = threads ? getElementByProperty(threads, 'uid', flights, 'thread') : [];
     return (
-        <li className="Nav-Link">
+        <li className="FlightRow">
             <FlightDate time={flights.arrival} date={flights.start_date} />
             <FlightStations stationFrom={stationFrom} stationTo={stationTo} />
             <FlightNumber thread={thread.number} />
