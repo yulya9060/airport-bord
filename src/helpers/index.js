@@ -58,6 +58,5 @@ export const getFligth = (segment) => {
     };
 };
 
-export const getElementByProperty = (arr, arrProperty, obj, objProperty) => {
-    arr.find(el => el[arrProperty] === obj[objProperty]);
-};
+// eslint-disable-next-line max-len
+export const getElementByProperty = (arr, arrProperty, obj, objProperty) => arr.find(el => el[arrProperty] === obj[objProperty]);

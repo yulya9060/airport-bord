@@ -17,7 +17,6 @@ let store = {};
 // Добавить возможности Event Emitter из Node
 const BoardStore = Object.assign({}, EventEmitter.prototype, {
     getStore() {
-        console.log('getStore', store);
         return store;
     },
 
@@ -27,17 +26,14 @@ const BoardStore = Object.assign({}, EventEmitter.prototype, {
     },
 
     addChangeListener(callback, event = 'BOARDSTORE_CHANGE') {
-        console.log('addChangeListener');
         this.on(event, callback);
     },
 
     emitChange(event = 'BOARDSTORE_CHANGE') {
-        console.log('emitChange', this.emit(event));
         this.emit(event);
     },
 
     removeChangeListener(callback, event = 'BOARDSTORE_CHANGE') {
-        console.log('removeChangeListener');
         this.removeListener(event, callback);
     },
 
@@ -45,10 +41,8 @@ const BoardStore = Object.assign({}, EventEmitter.prototype, {
 
 // Зарегистрировать обработчик в Диспетчере
 Dispatcher.register((action) => {
-    console.log('action', action);
     switch (action.type) {
     case Constants.LOAD_BOARD: {
-        console.log('LOAD_BOARD');
         store = {
             ...store,
             flights: action.flights,
@@ -57,7 +51,6 @@ Dispatcher.register((action) => {
             threads: action.threads,
             filter: action.filter,
         };
-
         BoardStore.emitChange();
         break;
     }

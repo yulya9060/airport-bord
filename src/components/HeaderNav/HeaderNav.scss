@@ -1,0 +1,11 @@
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 100%;
+}
+
+.header__item:hover {
+    color: #2d2f33;
+}
