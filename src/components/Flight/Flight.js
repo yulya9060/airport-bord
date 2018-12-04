@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import './Flight.scss';
 import { getElementByProperty } from '../../helpers/index';
 
-const Flight = ({ flights, thread, stations }) => {
+const Flight = ({ flights, threads, stations }) => {
     const stationFrom = getElementByProperty(stations, 'code', flights, 'from');
     const stationTo = getElementByProperty(stations, 'code', flights, 'to');
-    console.log('stationFrom', stationFrom);
-    console.log('stationTo', stationTo);
+    const thread = getElementByProperty(threads, 'uid', flights, 'thread');
     return (
         <li className="nav-link">
             <div>{flights.arrival}</div>
@@ -17,6 +16,16 @@ const Flight = ({ flights, thread, stations }) => {
             <div />
         </li>
     );
+};
+
+const threadsObj = {
+    uid: PropTypes.string,
+    title: PropTypes.string,
+    number: PropTypes.string,
+    short_title: PropTypes.string,
+    codeCarrier: PropTypes.number,
+    transport_type: PropTypes.string,
+    vehicle: PropTypes.string,
 };
 
 Flight.propTypes = {
@@ -30,7 +39,7 @@ Flight.propTypes = {
         to: PropTypes.string,
         duration: PropTypes.number,
     }),
-    thread: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+    threads: PropTypes.arrayOf(PropTypes.shape(threadsObj)),
     stations: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
 };
 
@@ -45,7 +54,7 @@ Flight.defaultProps = {
         to: '',
         duration: 0,
     },
-    thread: {},
+    threads: [],
     stations: [],
 };
 

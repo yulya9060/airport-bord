@@ -13,14 +13,13 @@ import {
 const Actions = {
     // loadBoardData('Шереметьево','Уганда')
     loadBoardData(filter = Constants.BY_ARRIVE) {
-        console.log('loadBoardData');
         const { segments } = data;
         let flights = [];
         let stations = [];
         let carriers = [];
-        let thread;
+        let threads = [];
         segments.forEach((segment) => {
-            thread = getThread(segment);
+            threads = [...threads, getThread(segment)];
             if (isNotExistInArray(carriers, segment.thread.carrier, 'code')) {
                 carriers = [...carriers, getCarrier(segment)];
             }
@@ -32,17 +31,12 @@ const Actions = {
             }
             flights = [...flights, getFligth(segment)];
         });
-
-        // console.log('newStation', stations);
-        // console.log('newСarrier', carriers);
-        // console.log('thread', thread);
-        // console.log('fligth', flights);
         Dispatcher.dispatch({
             type: Constants.LOAD_BOARD,
             flights,
             stations,
             carriers,
-            thread,
+            threads,
             filter,
         });
     },

@@ -5,26 +5,22 @@ import Actions from '../Actions/Actions';
 
 class AirportBord extends Component {
     constructor(props) {
-        console.log('constructor');
         super(props);
         this.state = {
             ...BoardStore.initialState(),
         };
-        Actions.loadBoardData();
     }
 
     componentDidMount() {
-        console.log('componentDidMount');
         BoardStore.addChangeListener(this.updateState);
+        Actions.loadBoardData();
     }
 
     componentWillUnmount() {
-        console.log('componentWillUnmount');
         BoardStore.removeChangeListener(this.updateState);
     }
 
     updateState = () => {
-        console.log('updateState');
         this.setState({ ...BoardStore.getStore() });
     };
 

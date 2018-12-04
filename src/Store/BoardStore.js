@@ -26,20 +26,21 @@ const BoardStore = Object.assign({}, EventEmitter.prototype, {
         return store;
     },
 
-    emitChange(event = 'BOARDSTORE_CHANGE') {
-        console.log('emitChange', this.emit(event));
-        this.emit(event);
-    },
-
     addChangeListener(callback, event = 'BOARDSTORE_CHANGE') {
         console.log('addChangeListener');
         this.on(event, callback);
+    },
+
+    emitChange(event = 'BOARDSTORE_CHANGE') {
+        console.log('emitChange', this.emit(event));
+        this.emit(event);
     },
 
     removeChangeListener(callback, event = 'BOARDSTORE_CHANGE') {
         console.log('removeChangeListener');
         this.removeListener(event, callback);
     },
+
 });
 
 // Зарегистрировать обработчик в Диспетчере
@@ -53,7 +54,7 @@ Dispatcher.register((action) => {
             flights: action.flights,
             stations: action.stations,
             carriers: action.carriers,
-            threads: action.thread,
+            threads: action.threads,
             filter: action.filter,
         };
 
