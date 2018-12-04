@@ -40,7 +40,7 @@ class Search extends React.Component {
                 />
                 <button
                     onClick={this.onChange}
-                    className="Search-Btn search-Btn_marginRight"
+                    className="Search-Btn"
                     type="submit"
                 >
                     Поиск

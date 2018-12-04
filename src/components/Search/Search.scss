@@ -16,6 +16,8 @@
         border: none;
         border-bottom: 2px solid $first-color-hover;
         outline: none;
+
+        font-size: 22px;
     }
 
     &-Btn {
@@ -27,12 +29,14 @@
         border-radius: 2px;
         background-color: $second-background-color;
 
+        font-size: 22px;
+
         &:hover {
             background-color: $first-color-hover;
         }
-
-        &_marginRight {
-            margin-right: 5px;
-        }
     }
+}
+
+.Search-Btn + .Search-Btn {
+    margin-left: 20px;
 }

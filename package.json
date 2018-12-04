@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/yulya9060/airport-bord.git"
   },
+  "homepage": "https://yulya9060.github.io/airport-bord/",
   "dependencies": {
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
