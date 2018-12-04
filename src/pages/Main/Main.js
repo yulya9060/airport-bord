@@ -1,5 +1,5 @@
 import React from 'react';
-import AirportBord from '../AirportBoard/AirportBord';
+import AirportBoard from '../AirportBoard/AirportBoard';
 import './Main.scss';
 import HeaderNav from '../../components/HeaderNav/HeaderNav';
 import Copyright from '../../components/Copyright/Copyright';
@@ -15,7 +15,7 @@ const Header = () => (
 const Container = () => (
     <section className="content main-content">
         <div className="container content__container">
-            <AirportBord />
+            <AirportBoard />
         </div>
     </section>
 );

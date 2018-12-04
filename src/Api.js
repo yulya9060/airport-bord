@@ -7,7 +7,7 @@ axios.defaults.baseURL = Settings.address;
 axios.defaults.headers.common.Accept = 'application/json';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 export default {
-    getAirportBord(from = 'c146', to = 'c213') {
+    getAirportBord(from, to) {
         const params = {
             from,
             to,
