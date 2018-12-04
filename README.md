@@ -1,44 +1,91 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Тестовое задание на вакансию Фронтенд-разработчик (стажер) в Маркет(Яндекс)
 
-In the project directory, you can run:
+Выполнила: Салтрукович Юлия
 
-### `npm start`
+### 1 Задание. 
+Разработайте клиентское приложение(сайт), где будет табло аэропорта.
+У табло должны быть следующие функции:
+просмотр только вылетающий рейсов
+просмотр только прилетающих рейсов
+просмотр задержанных рейсов
+поиск по номеру рейса.Ограничений на использование шаблонизаторов и библиотек нет.
+Выложите готовый код в репозиторий на гитхаб.
+Плюсом будет, если данные для табло вы получите из публичных api. Если решите их не использовать,
+то положите данные в отдельный файл в репозитории.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Приложение разработано при помощи Create-React-App. 
+Доступно по ссылке 
+> https://yulya9060.github.io/airport-bord/build/index.html
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Запуск приложения для разработки 
+### `npm start` по адресу http://localhost:3000
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
+Для сборки приложения используется команда 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Данные о расписании рейсов берутся из mock-файла. Данные были получены при помощи API расписания рейсов между станциями от Яндекс по следующему запросу:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```https://api.rasp.yandex.net/v3.0/search/?apikey={apikey}&format=json&from=c146&to=c213&lang=ru_RU&page=1```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Реализовать загрузку данных с данного API мне не удалось, не смогла победить CORS. Для работы с запросами была установлена библиотека axios. Файл с запросом - Api.js
 
-### `npm run eject`
+Расписание фильтруется по вылетающим и прилетающим рейсам. Так же, можно искать рейсы по номеру. Можно просмотреть рейсы, которые задерживаются.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Добавлены линтеры для автоматической проверки js и scss кода (Eslint и StyleLint).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2 Задание. 
+Почему this._i не увеличивается. Как исправить?
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+function Ticker() { 
+    this._i = 0
+};
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Ticker.prototype = { 
+    tick: function() {
+    console.log(this._i++); }
+};
 
-## Learn More
+var ticker = new Ticker();
+ 
+setInterval(ticker.tick, 1000);
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ В момент вызова функции ticker.tick экземпляра объекта Ticker уже не существует так как вызов произойдет после выполнения основного потока кода. Можно сохранить область видимости через замыкание либо привязать через bind
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Решение 1:
+```
+function Ticker() {
+    this._i = 0;
+}
+
+Ticker.prototype = {
+    tick() {
+        console.log(this._i++);
+    },
+};
+
+const ticker = new Ticker();
+
+setInterval(() => {
+    ticker.tick();
+}, 1000);
+```
+
+Решение 2:
+```
+function Ticker() {
+    this._i = 0;
+}
+
+Ticker.prototype = {
+    tick() {
+        console.log(this._i++);
+    },
+};
+
+const ticker = new Ticker();
+
+setInterval(ticker.tick.bind(ticker), 1000);
+```
