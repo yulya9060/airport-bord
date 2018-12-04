@@ -38,7 +38,7 @@ const PlaneSchedule = ({
         ? flights.filter(flight => findObjInArr(flight, searchThreadNumber))
         : flights;
     return (
-        <ul className="flights__nav">
+        <ul className="PlaneSchedule-Nav">
             {filterFlight.map(flight => (
                 <FlightRow
                     key={flight.uid}

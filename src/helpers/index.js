@@ -1,5 +1,12 @@
 import { v4 } from 'uuid';
 
+/**
+ * Проверяет на существование объекта с данным свойством в массиве
+ * @param {array} arr
+ * @param {object} item
+ * @param {some} key
+ * @return {boolean}
+ */
 export const isNotExistInArray = (arr, item, key) => {
     if (arr.length > 0) {
         return !arr.some(el => el[key] === item[key]);
@@ -7,6 +14,11 @@ export const isNotExistInArray = (arr, item, key) => {
     return arr.length === 0;
 };
 
+/**
+ * Возвращает новый объект c ниткой рейса
+ * @param {object} segment
+ * @return {object}
+ */
 export const getThread = (segment) => {
     const thread = segment.thread || {};
     return {
@@ -20,6 +32,11 @@ export const getThread = (segment) => {
     };
 };
 
+/**
+ *  Возвращает новый объект с перевозчиками
+ * @param {object} segment
+ * @return {object}
+ */
 export const getCarrier = (segment) => {
     const carrier = segment.thread.carrier || {};
     return {
@@ -28,6 +45,11 @@ export const getCarrier = (segment) => {
     };
 };
 
+/**
+ * Возвращает новыйобъект со станциями отправления
+ * @param {object} segment
+ * @return {object}
+ */
 export const getStationFrom = (segment) => {
     const stationFrom = segment.from || {};
     return {
@@ -36,6 +58,11 @@ export const getStationFrom = (segment) => {
     };
 };
 
+/**
+ * Возвращает новыйобъект со станциями назначения
+ * @param {object} segment
+ * @return {object}
+ */
 export const getStationTo = (segment) => {
     const stationTo = segment.to || {};
     return {
@@ -44,6 +71,11 @@ export const getStationTo = (segment) => {
     };
 };
 
+/**
+ * Возвращает новый объект с информацией по рейсу
+ * @param {object} segment
+ * @return {object}
+ */
 export const getFligth = (segment) => {
     const fligth = segment || {};
     return {
@@ -59,5 +91,12 @@ export const getFligth = (segment) => {
     };
 };
 
+/**
+ * Возвращает первый найденный элемент в массиве с указанным свойством
+ * @param {*} arr
+ * @param {*} arrProperty
+ * @param {*} obj
+ * @param {*} objProperty
+ */
 // eslint-disable-next-line max-len
 export const getElementByProperty = (arr, arrProperty, obj, objProperty) => arr.find(el => el[arrProperty] === obj[objProperty]);

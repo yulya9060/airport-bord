@@ -5,31 +5,31 @@ import HeaderNav from '../../components/HeaderNav/HeaderNav';
 import Copyright from '../../components/Copyright/Copyright';
 
 const Header = () => (
-    <header className="header">
-        <div className="container header__container">
+    <header className="Header">
+        <div className="Container Header-Container">
             <HeaderNav />
         </div>
     </header>
 );
 
 const Container = () => (
-    <section className="content main-content">
-        <div className="container content__container">
+    <section className="Content Main-Content">
+        <div className="Container Content-Container">
             <AirportBoard />
         </div>
     </section>
 );
 
 const Footer = () => (
-    <footer className="footer">
-        <div className="container footer__container">
+    <footer className="Footer">
+        <div className="Container Footer-Container">
             <Copyright />
         </div>
     </footer>
 );
 
 const Main = () => (
-    <div className="wrapper">
+    <div className="Wrapper">
         <Header />
         <Container />
         <Footer />

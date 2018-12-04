@@ -15,7 +15,7 @@ const FlightDescribe = ({
     } else if (+new Date() > arrivalDate) {
         describe = 'Рейс прибыл';
     }
-    return <div className="flightDescribe">{describe}</div>;
+    return <div className="FlightDescribe">{describe}</div>;
 };
 
 FlightDescribe.propTypes = {

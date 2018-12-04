@@ -1,16 +1,39 @@
-.nav-link {
+@import "../../index.scss";
+
+.Nav-Link {
+    position: relative;
+
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-start;
 
     width: 100%;
     padding: 20px 0 24px;
 
-    transition: border-bottom 0.3s;
+    transition: border-bottom 0.15s;
 
-    border-bottom: 1px solid black;
-    background-color: #fff;
+    border-bottom: 3px solid transparent;
+    background-color: $first-background-color;
+
+    &::before {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        content: "";
+
+        background-color: $first-color;
+    }
 
     &:hover {
-        border-bottom: 3px solid rgb(255, 172, 2);
+        &::before {
+            height: 3px;
+
+            background-color: $first-color-hover;
+        }
     }
 }

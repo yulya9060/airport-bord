@@ -13,7 +13,6 @@ import {
 
 const Actions = {
     loadBoardDataFromTo(filter) {
-        console.log('loadData', filter);
         const { segments } = fromto;
         let flights = [];
         let stations = [];
@@ -43,7 +42,6 @@ const Actions = {
     },
 
     loadBoardDataToFrom(filter) {
-        console.log('loadData', filter);
         const { segments } = tofrom;
         let flights = [];
         let stations = [];
