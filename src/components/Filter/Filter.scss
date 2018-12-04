@@ -15,8 +15,10 @@
     font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
     font-size: 50px;
     font-weight: 700;
-
     &:hover {
+        color: #ffac02;
+    }
+    &_active {
         color: #ffac02;
     }
 }
