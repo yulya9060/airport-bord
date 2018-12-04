@@ -9,10 +9,18 @@ import {
     getStationTo,
     getFligth,
 } from '../helpers/index';
+// import api from '../Api';
 
 const Actions = {
     // loadBoardData('Шереметьево','Уганда')
     loadBoardData(filter = Constants.BY_ARRIVE) {
+        // api.getAirportBord()
+        //     .then((response) => {
+        //         console.log('response', response.data);
+        //     })
+        //     .catch((err) => {
+        //         console.log('err', err.toString());
+        //     });
         const { segments } = data;
         let flights = [];
         let stations = [];
