@@ -1,0 +1,12 @@
+.flightStations {
+    flex: 1 0 auto;
+
+    transition: color 0.3s;
+
+    font-size: 32px;
+    font-weight: normal;
+
+    &:hover {
+        color: #e07500;
+    }
+}

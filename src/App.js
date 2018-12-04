@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import AirportBoard from './pages/AirportBord';
+import AirportBoard from './pages/AirportBoard/AirportBord';
 
 const App = () => (
     <div className="App">

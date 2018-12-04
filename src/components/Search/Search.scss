@@ -1,0 +1,36 @@
+.search {
+    display: flex;
+    justify-content: flex-start;
+
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.seacrh_text {
+    display: flex;
+    flex: 1 0 auto;
+
+    margin-right: 20px;
+
+    border: none;
+    border-bottom: 2px solid #ffac02;
+    outline: none;
+}
+
+.search__btn {
+    padding: 5px 10px;
+
+    transition: background-color 0.4s;
+
+    border: 1px solid #ffac02;
+    border-radius: 2px;
+    background-color: rgba(255, 172, 2, 0.3);
+
+    &:hover {
+        background-color: rgb(255, 172, 2);
+    }
+
+    &_marginRight {
+        margin-right: 5px;
+    }
+}
