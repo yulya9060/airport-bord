@@ -17,13 +17,12 @@ class Search extends React.Component {
     onChange = () => {
         const { search } = this.state;
         const { onSearchByBumber } = this.props;
-        if (search.trim().length) {
-            onSearchByBumber(search);
-        }
+        onSearchByBumber(search);
     };
 
     onResetSearchValue = () => {
-        console.log('onResetSearchValue');
+        const { onSearchByBumber } = this.props;
+        onSearchByBumber('');
         this.setState({ search: '' });
     };
 
